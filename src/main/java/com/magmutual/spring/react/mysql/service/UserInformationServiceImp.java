@@ -28,6 +28,12 @@ public class UserInformationServiceImp implements UserInformationService {
 
     @Transactional
     @Override
+    public User getUserByProfession(String profession) {
+        return userDAO.getUserByProfession(profession);
+    }
+
+    @Transactional
+    @Override
     public void save(User user) {
         userDAO.save(user);
 
