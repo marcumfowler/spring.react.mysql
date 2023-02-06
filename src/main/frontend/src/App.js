@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useTable } from 'react-table'
+import { useState, useEffect } from 'react';
 
-import makeData from './makeData'
+import Data from './Data'
 
 const Styles = styled.div`
   padding: 1rem;
@@ -75,10 +76,24 @@ function Table({ columns, data }) {
 }
 
 function App() {
+  
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+     fetch('http://localhost:8080')
+        .then((response) => response.json())
+        .then((data) => {
+           console.log(data);
+           setPosts(data);
+        })
+        .catch((err) => {
+           console.log(err.message);
+        });
+  }, []);
+
   const columns = React.useMemo(
     () => [
       {
-        Header: 'User',
+        Header: 'Name',
         columns: [
           {
             Header: 'Id',
@@ -99,11 +114,11 @@ function App() {
         columns: [
           {
             Header: 'Email',
-            accessor: 'age',
+            accessor: 'email',
           },
           {
             Header: 'Profession',
-            accessor: 'visits',
+            accessor: 'profession',
           },
           {
             Header: 'Country',
@@ -113,13 +128,17 @@ function App() {
             Header: 'City',
             accessor: 'city',
           },
+          {
+            Header: 'Date',
+            accessor: 'date',
+          },
         ],
       },
     ],
     []
   )
 
-  const data = React.useMemo(() => makeData(20), [])
+  const data = React.useMemo(() => Data(20), [])
 
   return (
     <Styles>

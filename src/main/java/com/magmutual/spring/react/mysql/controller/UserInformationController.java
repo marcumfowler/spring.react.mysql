@@ -33,7 +33,7 @@ public class UserInformationController {
     }
 
     //    Endpoint to return a specific user (and all associated information)
-    @GetMapping("/users/{id}")
+    @GetMapping("/user/{id}")
     public User getUser(@PathVariable int id) {
         return userInformationService.getUser(id);
     }
