@@ -22,19 +22,19 @@ public class UserInformationController {
     private UserInformationService userInformationService;
 
     @GetMapping("/users")
-    public List<User> get() {
-        return userInformationService.get();
+    public List<User> getAll() {
+        return userInformationService.getAll();
     }
 
-    @PostMapping("/users")
+    @PostMapping("/users/{id}")
     public User save(@RequestBody User user) {
         userInformationService.save(user);
         return user;
     }
 
     @GetMapping("/users/{id}")
-    public User get(@PathVariable int id) {
-        return userInformationService.get(id);
+    public User getUser(@PathVariable int id) {
+        return userInformationService.getUser(id);
     }
 
     @DeleteMapping("/users/{id}")

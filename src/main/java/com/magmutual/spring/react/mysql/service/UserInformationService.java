@@ -5,9 +5,9 @@ import com.magmutual.spring.react.mysql.modal.User;
 import java.util.List;
 
 public interface UserInformationService {
-    List<User> get();
+    List<User> getAll();
 
-    User get(int id);
+    User getUser(int id);
 
     void save(User employee);
 

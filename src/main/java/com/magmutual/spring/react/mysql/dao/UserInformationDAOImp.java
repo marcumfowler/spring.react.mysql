@@ -8,18 +8,21 @@ import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 @Repository
 public class UserInformationDAOImp implements UserInformationDAO {
     @Autowired
     private EntityManager entityManager;
     @Override
-    public List<User> get() {
+    public List<User> getAll() {
         Session currSession = entityManager.unwrap(Session.class);
         Query<User> query = currSession.createQuery("from User", User.class);
-        return query.getResultList();
+        List<User> list = query.getResultList();
+        System.out.println(list);
+        return list;
     }
     @Override
-    public User get(int id) {
+    public User getUser(int  id) {
         Session currSession = entityManager.unwrap(Session.class);
         return currSession.get(User.class, id);
     }

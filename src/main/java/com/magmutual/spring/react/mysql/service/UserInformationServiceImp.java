@@ -16,20 +16,20 @@ public class UserInformationServiceImp implements UserInformationService {
 
     @Transactional
     @Override
-    public List<User> get() {
-        return userDAO.get();
+    public List<User> getAll() {
+        return userDAO.getAll();
     }
 
     @Transactional
     @Override
-    public User get(int id) {
-        return userDAO.get(id);
+    public User getUser(int id) {
+        return userDAO.getUser(id);
     }
 
     @Transactional
     @Override
-    public void save(User employee) {
-        userDAO.save(employee);
+    public void save(User user) {
+        userDAO.save(user);
 
     }
 

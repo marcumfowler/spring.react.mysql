@@ -1,6 +1,5 @@
 package com.magmutual.spring.react.mysql.modal;
 
-import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,17 +8,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.sql.Date;
+
 @Entity
-@Table(name = "userInformation")
+@Table(name = "user_information")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Integer id;
     @Column
-    private String firstName;
+    private String first;
     @Column
-    private String lastName;
+    private String last;
     @Column
     private String email;
     @Column
@@ -29,11 +30,24 @@ public class User {
     @Column
     private String city;
     @Column
-    private LocalDate date;
+    private Date date;
+
+    public User(String first, String last, String email, String profession, String city, String country, Date date) {
+
+        this.first = first;
+        this.last = last;
+        this.email = email;
+        this.profession = profession;
+        this.city = city;
+        this.country = country;
+        this.date = date;
+    }
+
+    protected User() {}
 
     @Override
     public String toString() {
-        return "User [id= " + id + ", name=" + firstName + " " + lastName + "]";
+        return "User [id= " + id + ", name=" + first + " " + last + "]";
     }
 
     public Integer getId() {
@@ -45,19 +59,19 @@ public class User {
     }
 
     public String getFirstNameName() {
-        return firstName;
+        return first;
     }
 
-    public void setFirstName(String name) {
-        this.firstName = firstName;
+    public void setFirstName(String first) {
+        this.first = first;
     }
 
     public String getLastNameName() {
-        return lastName;
+        return last;
     }
 
     public void setLastName(String name) {
-        this.lastName = lastName;
+        this.last = last;
     }
 
     public String getProfession() {
@@ -92,11 +106,11 @@ public class User {
         this.city = city;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }
