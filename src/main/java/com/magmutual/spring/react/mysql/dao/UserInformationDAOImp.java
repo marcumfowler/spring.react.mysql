@@ -15,15 +15,13 @@ public class UserInformationDAOImp implements UserInformationDAO {
     @Override
     public List<User> get() {
         Session currSession = entityManager.unwrap(Session.class);
-        Query<User> query = currSession.createQuery("from Employee", Employee.class);
-        List<User> list = query.getResultList();
-        return list;
+        Query<User> query = currSession.createQuery("from User", User.class);
+        return query.getResultList();
     }
     @Override
     public User get(int id) {
         Session currSession = entityManager.unwrap(Session.class);
-        User emp = currSession.get(User.class, id);
-        return emp;
+        return currSession.get(User.class, id);
     }
     @Override
     public void save(User user) {
