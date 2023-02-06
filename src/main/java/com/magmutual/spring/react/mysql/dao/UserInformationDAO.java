@@ -9,7 +9,10 @@ public interface UserInformationDAO {
 
     User getUser(int id);
 
+    User getUserByProfession(String profession);
+
     void save(User user);
 
     void delete(int id);
+
 }

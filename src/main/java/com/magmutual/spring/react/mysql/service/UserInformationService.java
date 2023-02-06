@@ -9,6 +9,8 @@ public interface UserInformationService {
 
     User getUser(int id);
 
+    User getUserByProfession(String profession);
+
     void save(User employee);
 
     void delete(int id);
