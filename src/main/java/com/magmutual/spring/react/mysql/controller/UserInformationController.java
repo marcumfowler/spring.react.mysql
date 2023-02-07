@@ -23,10 +23,10 @@ public class UserInformationController {
 
 
 
-//    Endpoint to return a list of users created between a date range
+    //Endpoint to return a list of users created between a date range
 
 
-//    Custom Endpoint that you design on your own.
+    //Custom Endpoint that you design on your own.
     @GetMapping("/users")
     public List<User> getAll() {
         return userInformationService.getAll();

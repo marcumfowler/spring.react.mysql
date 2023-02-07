@@ -1,5 +1,6 @@
 package com.magmutual.spring.react.mysql.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.magmutual.spring.react.mysql.dao.UserInformationDAO;
@@ -32,18 +33,9 @@ public class UserInformationServiceImp implements UserInformationService {
         return userDAO.getUserByProfession(profession);
     }
 
-    @Transactional
     @Override
-    public void save(User user) {
-        userDAO.save(user);
-
-    }
-
-    @Transactional
-    @Override
-    public void delete(int id) {
-        userDAO.delete(id);
-
+    public List<User> getUsersInDate(Date date, Date date2) {
+        return null;
     }
 }
 

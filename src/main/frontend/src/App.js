@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useTable } from 'react-table'
-import { useState, useEffect } from 'react';
+import useState from 'react'
+import useEffect from 'react'
+
 
 import Data from './Data'
 
@@ -33,51 +34,9 @@ const Styles = styled.div`
     }
   }
 `
-
-function Table({ columns, data }) {
-  // Use the state and functions returned from useTable to build your UI
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-  } = useTable({
-    columns,
-    data,
-  })
-
-  // Render the UI for your table
-  return (
-    <table {...getTableProps()}>
-      <thead>
-        {headerGroups.map(headerGroup => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map(column => (
-              <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row, i) => {
-          prepareRow(row)
-          return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map(cell => {
-                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-              })}
-            </tr>
-          )
-        })}
-      </tbody>
-    </table>
-  )
-}
-
 function App() {
   
-  const [posts, setPosts] = useState([]);
+  const [, setPosts] = useState([]);
   useEffect(() => {
      fetch('http://localhost:8080')
         .then((response) => response.json())

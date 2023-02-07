@@ -2,6 +2,7 @@ package com.magmutual.spring.react.mysql.service;
 
 import com.magmutual.spring.react.mysql.modal.User;
 
+import java.util.Date;
 import java.util.List;
 
 public interface UserInformationService {
@@ -11,7 +12,6 @@ public interface UserInformationService {
 
     User getUserByProfession(String profession);
 
-    void save(User employee);
+    List<User> getUsersInDate(Date date, Date date2);
 
-    void delete(int id);
 }
