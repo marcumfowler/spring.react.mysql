@@ -43,25 +43,4 @@ public class UserInformationController {
     public User getUsersByProfession(@PathVariable String profession) {
         return userInformationService.getUserByProfession(profession);
     }
-
-    @PostMapping("/users/{id}")
-    public User save(@RequestBody User user) {
-        userInformationService.save(user);
-        return user;
-    }
-
-    @DeleteMapping("/users/{id}")
-    public String delete(@PathVariable int id) {
-
-        userInformationService.delete(id);
-
-        return "User removed with id " + id;
-
-    }
-
-    @PutMapping("/users")
-    public User update(@RequestBody User user) {
-        userInformationService.save(user);
-        return user;
-    }
 }
