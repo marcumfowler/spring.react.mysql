@@ -34,8 +34,8 @@ public class UserInformationServiceImp implements UserInformationService {
     }
 
     @Override
-    public List<User> getUsersInDate(Date date, Date date2) {
-        return null;
+    public List<User> getNewAnnualUsers(Date date) {
+        return userDAO.getNewAnnualUsers(date);
     }
 }
 

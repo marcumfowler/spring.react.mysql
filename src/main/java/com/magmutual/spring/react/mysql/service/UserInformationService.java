@@ -12,6 +12,6 @@ public interface UserInformationService {
 
     User getUserByProfession(String profession);
 
-    List<User> getUsersInDate(Date date, Date date2);
+    List<User> getNewAnnualUsers(Date date);
 
 }
