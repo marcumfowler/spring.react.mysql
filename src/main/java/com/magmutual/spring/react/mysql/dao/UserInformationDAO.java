@@ -1,5 +1,6 @@
 package com.magmutual.spring.react.mysql.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import com.magmutual.spring.react.mysql.modal.User;
@@ -9,10 +10,12 @@ public interface UserInformationDAO {
 
     User getUser(int id);
 
-    User getUserByProfession(String profession);
+    List <User> getUserByProfession(String profession);
 
-    void save(User user);
+    List <User> getNewAnnualUsers(Date date);
 
-    void delete(int id);
+//    void save(User user);
+//
+//    void delete(int id);
 
 }
